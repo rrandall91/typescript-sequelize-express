@@ -1,0 +1,92 @@
+module.exports = {
+  root: true,
+  env: { node: true },
+  extends: [ "airbnb-base", "prettier", "plugin:@typescript-eslint/recommended" ],
+  plugins: [ "@typescript-eslint" ],
+  parser: "@typescript-eslint/parser",
+  parserOptions: { ecmaVersion: 11 },
+  ignorePatterns: [ "build" ],
+  settings: { "import/resolver": { node: { extensions: [ ".js", ".jsx", ".ts", ".tsx" ] } } },
+  rules: {
+    strict: [ "error", "global" ],
+    quotes: [ "error", "double", { allowTemplateLiterals: true } ],
+    semi: [ "error", "always" ],
+    curly: [ "error", "all" ],
+    "dot-notation": [ "error", { allowKeywords: true } ],
+    "no-multi-spaces": [
+      "error",
+      { exceptions: { Property: false }, ignoreEOLComments: false },
+    ],
+    "no-restricted-syntax": "off",
+    "no-plusplus": [ "error", { allowForLoopAfterthoughts: true } ],
+    "no-await-in-loop": "off",
+    "no-param-reassign": "off",
+    "no-loop-func": "off",
+    "no-console": [ "error", { allow: [ "info", "warn", "error" ] } ],
+    "import/no-extraneous-dependencies": [ "error", { devDependencies: true } ],
+    "brace-style": [ "error", "1tbs", { allowSingleLine: true } ],
+    indent: [ "error", 2 ],
+    "array-bracket-spacing": [ "error", "always", { objectsInArrays: true } ],
+    "object-curly-spacing": [ "error", "always" ],
+    "comma-dangle": [ "error", "only-multiline" ],
+    "comma-spacing": [ "error", { before: false, after: true } ],
+    "newline-after-var": [ "error", "always" ],
+    "array-bracket-newline": [ "error", { multiline: true } ],
+    "function-paren-newline": [ "error", "consistent" ],
+    "object-curly-newline": [ "error", { multiline: true } ],
+    "eol-last": [ "error", "always" ],
+    "space-before-function-paren": [
+      "error",
+      { anonymous: "always", named: "never", asyncArrow: "always" },
+    ],
+    "multiline-comment-style": [ "error", "starred-block" ],
+    "lines-around-comment": [
+      "error",
+      {
+        beforeBlockComment: true,
+        afterBlockComment: false,
+        beforeLineComment: true,
+        afterLineComment: false,
+      },
+    ],
+    "space-before-blocks": [ "error", "always" ],
+    "keyword-spacing": [ "error", { before: true, after: true } ],
+    "arrow-spacing": [ "error", { before: true, after: true } ],
+    "no-self-assign": [ "error", { props: true } ],
+    "space-infix-ops": [ "error", { int32Hint: false } ],
+    "@typescript-eslint/no-shadow": [ "error" ],
+    "@typescript-eslint/indent": [ "error", 2 ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
+  },
+  overrides: [
+
+    // Jest-related files
+    {
+      files: [
+        "**/__tests__/*.{j,t}s?(x)",
+        "**/test/*.{j,t}s?(x)",
+        "**/tests/*.{j,t}s?(x)",
+        "**/tests/**/*.spec.{j,t}s?(x)",
+      ],
+      env: { jest: true },
+      plugins: [ "jest" ],
+      rules: {
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error",
+      },
+    },
+  ]
+};
+  

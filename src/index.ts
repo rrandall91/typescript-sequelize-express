@@ -6,7 +6,7 @@ import helmet from "helmet";
 import router from "./router";
 
 const PORT: string = process.env.PORT || "80";
-const ENV: string = process.env.NODE_ENV || "development";
+const ENV: string | undefined = process.env.NODE_ENV;
 
 const app: Application = express();
 
