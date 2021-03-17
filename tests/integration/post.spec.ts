@@ -27,7 +27,7 @@ beforeEach(async () => {
 
   postAttributes = {
     userId: user.id,
-    title: faker.random.words(Math.floor(Math.random() * Math.floor(12))),
+    title: faker.lorem.sentence(),
     body: faker.lorem.paragraph(),
   };
 });
@@ -48,7 +48,7 @@ describe("GET /posts", () => {
     for (let i = 0; i < TOTAL_INITIAL_POSTS; i++) {
       const attributes = {
         userId: user.id,
-        title: faker.random.words(Math.floor(Math.random() * Math.floor(12))),
+        title: faker.lorem.sentence(),
         body: faker.lorem.paragraph(),
       };
 

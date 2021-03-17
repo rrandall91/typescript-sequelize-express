@@ -4,9 +4,9 @@ const slugify = require("slugify");
 
 const tableName = "posts";
 
-const post1 = faker.random.words(Math.floor(Math.random() * Math.floor(12)));
-const post2 = faker.random.words(Math.floor(Math.random() * Math.floor(12)));
-const post3 = faker.random.words(Math.floor(Math.random() * Math.floor(12)));
+const post1 = faker.lorem.sentence();
+const post2 = faker.lorem.sentence();
+const post3 = faker.lorem.sentence();
 
 module.exports = {
   up: async (queryInterface) => {

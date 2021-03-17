@@ -19,7 +19,7 @@ beforeEach(async () => {
 
   postAttributes = {
     userId: user.id,
-    title: faker.random.words(Math.floor(Math.random() * Math.floor(12))),
+    title: faker.lorem.sentence(),
     body: faker.lorem.paragraph(),
   };
 });
