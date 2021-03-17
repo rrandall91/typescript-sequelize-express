@@ -62,9 +62,7 @@ export default {
       }
 
       const { id, name }: { id: number; name: string } = user;
-      const token = jwt.sign({ id, name, email }, "access_token", {
-        expiresIn: "1h",
-      });
+      const token = jwt.sign({ id, name, email }, "access_token", { expiresIn: "1h" });
 
       return res.send({ token, name, email });
     } catch (error) {

@@ -22,6 +22,10 @@ docker-compose up -d
 
 Upon starting the project, a `data` directory is created to allow the PostgreSQL container data to persist.
 
+#### Initial Data
+
+Seed data is generated and imported into the database on start-up. If necessary, the seeders may be re-run using `docker-compose exec app npm run db:seed`.
+
 ## Testing
 
 For ease, `runTests.sh` runs the application tests from within the Docker container, eliminating the need to connect to a local database. All test data is deleted after running the tests.
