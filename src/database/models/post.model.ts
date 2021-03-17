@@ -1,9 +1,11 @@
 import * as Sequelize from "sequelize";
 import slugify from "slugify";
 import sequelize from "../connection";
+import User from "./user.model";
 
 export interface PostAttributes {
   id?: number;
+  userId: number;
   title: string;
   body: string;
   slug?: string;
@@ -14,9 +16,11 @@ export interface PostAttributes {
 export type PostCreationAttributes = Sequelize.Optional<PostAttributes, "id">;
 
 class Post
-  extends Sequelize.Model<PostAttributes, PostCreationAttributes>
+  extends Sequelize.Model
   implements PostAttributes {
   public id!: number;
+
+  public userId!: number;
 
   public title!: string;
 
@@ -28,6 +32,12 @@ class Post
   public readonly createdAt!: Date;
 
   public readonly updatedAt!: Date;
+
+  public readonly user?: User;
+
+  public static associations: {
+    user: Sequelize.Association<Post, User>;
+  };
 }
 
 Post.init(
@@ -36,6 +46,17 @@ Post.init(
       type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+    },
+    userId: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: "users",
+        key: "id",
+      },
+      allowNull: false,
+      validate: { notEmpty: true },
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
     },
     title: {
       type: Sequelize.STRING,
@@ -68,9 +89,11 @@ Post.init(
         if (!post.slug) {
           post.slug = slugify(post.title.toLowerCase());
         }
-      }
-    }
+      },
+    },
   }
 );
+
+Post.belongsTo(User);
 
 export default Post;

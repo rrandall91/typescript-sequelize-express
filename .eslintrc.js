@@ -5,7 +5,7 @@ module.exports = {
   plugins: [ "@typescript-eslint" ],
   parser: "@typescript-eslint/parser",
   parserOptions: { ecmaVersion: 11 },
-  ignorePatterns: [ "build" ],
+  ignorePatterns: [ "build", "data" ],
   settings: { "import/resolver": { node: { extensions: [ ".js", ".jsx", ".ts", ".tsx" ] } } },
   rules: {
     strict: [ "error", "global" ],
