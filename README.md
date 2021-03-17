@@ -24,7 +24,7 @@ Upon starting the project, a `data` directory is created to allow the PostgreSQL
 
 #### Initial Data
 
-Seed data is generated and imported into the database on start-up. If necessary, the seeders may be re-run using `docker-compose exec app npm run db:seed`.
+Seed data is generated and imported into the database using `docker-compose exec app npm run db:seed`.
 
 ## Testing
 
@@ -35,33 +35,32 @@ $ ./runTests.sh
 
 ## Generates the below output
 
------------------------|---------|----------|---------|---------|-------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------|---------|----------|---------|---------|-------------------
-All files              |   91.47 |    57.14 |     100 |    91.2 |                   
- src                   |     100 |       50 |     100 |     100 |                   
-  index.ts             |     100 |       50 |     100 |     100 | 8                 
- src/controllers       |   82.46 |       50 |     100 |   82.46 |                   
-  posts.controller.ts  |   82.35 |       50 |     100 |   82.35 | 12,23,40,46,63,70 
-  users.controller.ts  |   82.61 |       50 |     100 |   82.61 | 12,24,42,50       
- src/database          |     100 |       50 |     100 |     100 |                   
-  connection.ts        |     100 |       50 |     100 |     100 | 3                 
- src/database/config   |     100 |      100 |     100 |     100 |                   
-  db.config.js         |     100 |      100 |     100 |     100 |                   
- src/database/models   |     100 |      100 |     100 |     100 |                   
-  post.model.ts        |     100 |      100 |     100 |     100 |                   
-  user.model.ts        |     100 |      100 |     100 |     100 |                   
- src/router            |     100 |      100 |     100 |     100 |                   
-  index.ts             |     100 |      100 |     100 |     100 |                   
-  post.router.ts       |     100 |      100 |     100 |     100 |                   
-  user.router.ts       |     100 |      100 |     100 |     100 |                   
- src/router/middleware |   88.89 |       50 |     100 |    87.5 |                   
-  auth.middleware.ts   |   88.89 |       50 |     100 |    87.5 | 12                
------------------------|---------|----------|---------|---------|-------------------
+-----------------------|---------|----------|---------|---------|----------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
+-----------------------|---------|----------|---------|---------|----------------------
+All files              |   86.23 |    57.14 |     100 |   85.71 |                      
+ src                   |     100 |       50 |     100 |     100 |                      
+  index.ts             |     100 |       50 |     100 |     100 | 8                    
+ src/controllers       |   73.44 |       50 |     100 |   73.02 |                      
+  posts.controller.ts  |   73.68 |       50 |     100 |   72.97 | ...76-78,102,113-115 
+  users.controller.ts  |   73.08 |       50 |     100 |   73.08 | 18-20,37-39,63,73-75 
+ src/database          |     100 |       50 |     100 |     100 |                      
+  connection.ts        |     100 |       50 |     100 |     100 | 3                    
+ src/database/config   |     100 |      100 |     100 |     100 |                      
+  db.config.js         |     100 |      100 |     100 |     100 |                      
+ src/database/models   |     100 |      100 |     100 |     100 |                      
+  post.model.ts        |     100 |      100 |     100 |     100 |                      
+  user.model.ts        |     100 |      100 |     100 |     100 |                      
+ src/router            |     100 |      100 |     100 |     100 |                      
+  index.ts             |     100 |      100 |     100 |     100 |                      
+  post.router.ts       |     100 |      100 |     100 |     100 |                      
+  user.router.ts       |     100 |      100 |     100 |     100 |                      
+ src/router/middleware |   81.82 |       50 |     100 |      80 |                      
+  auth.middleware.ts   |   81.82 |       50 |     100 |      80 | 16-19                
+-----------------------|---------|----------|---------|---------|----------------------
 
 Test Suites: 4 passed, 4 total
 Tests:       9 passed, 9 total
 Snapshots:   0 total
-Time:        7.393 s
-
+Time:        4.144 s, estimated 7 s
 ```
