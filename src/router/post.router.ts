@@ -2,6 +2,9 @@ import { Router } from "express";
 import controller from "../controllers/posts.controller";
 import authMiddleware from "./middleware/auth.middleware";
 
+/**
+ * @description Post Router
+ */
 const router: Router = Router();
 
 router.get("/", controller.index);

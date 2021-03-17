@@ -3,6 +3,9 @@ import slugify from "slugify";
 import sequelize from "../connection";
 import User from "./user.model";
 
+/**
+ * @interface PostAttributes Interface
+ */
 export interface PostAttributes {
   id?: number;
   userId: number;
@@ -13,8 +16,17 @@ export interface PostAttributes {
   updatedAt?: Date;
 }
 
+/**
+ * @type PostCreationAttributes
+ */
 export type PostCreationAttributes = Sequelize.Optional<PostAttributes, "id">;
 
+/**
+ * @class Post
+ * @extends Sequelize.Model
+ * @implements PostAttributes
+ * @description A class representing a post.
+ */
 class Post
   extends Sequelize.Model
   implements PostAttributes {

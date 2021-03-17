@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
+/**
+ * @description Authentication Middleware
+ */
 export default async (req: Request, res: Response, next: () => void): Promise<void | Response<Record<string, unknown>>> => {
   const token: string | undefined = req.headers.authorization;
 

@@ -1,6 +1,9 @@
 import * as Sequelize from "sequelize";
 import sequelize from "../connection";
 
+/**
+ * @interface UserAttributes
+ */
 export interface UserAttributes {
   id?: number;
   name: string;
@@ -10,8 +13,17 @@ export interface UserAttributes {
   updatedAt?: Date;
 }
 
+/**
+ * @type UserCreationAttributes
+ */
 export type UserCreationAttributes = Sequelize.Optional<UserAttributes, "id">;
 
+/**
+ * @class User
+ * @extends Sequelize.Model
+ * @implements UserAttributes
+ * @description A class representing a user.
+ */
 class User
   extends Sequelize.Model
   implements UserAttributes {
