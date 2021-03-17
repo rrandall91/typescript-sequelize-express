@@ -1,0 +1,1 @@
+NODE_ENV=test docker-compose exec app npm test

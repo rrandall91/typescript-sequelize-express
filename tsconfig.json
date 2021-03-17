@@ -14,7 +14,7 @@
       "./src/*.ts",
       "./src/**/*.ts",
       "./src/*.js",
-      "./src/**/*.js",
+      "./src/**/*.js", "src/database/models/index.js.x",
     ],
     "exclude": [
       "node_modules",

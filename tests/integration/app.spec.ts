@@ -1,9 +1,11 @@
 import request from "supertest";
-import server from "../src";
+import server from "../../src";
+import sequelize from "../../src/database/connection";
 
 const BASE_URL = "/";
 
 afterAll(async () => {
+  await sequelize.close();
   await server.close();
 });
 
@@ -14,7 +16,7 @@ describe("GET /", () => {
       message: "Invalid Request"
     };
     
-    request(server).get(BASE_URL)
+    return request(server).get(BASE_URL)
       .expect(400, responseData, done);
   });
 });
