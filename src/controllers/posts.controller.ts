@@ -15,6 +15,8 @@ export default {
 
       return res.send(posts);
     } catch (error) {
+      console.error(error);
+      
       return res
         .status(500)
         .send({ status: 500, message: "Fatal error!", error });
@@ -36,6 +38,7 @@ export default {
 
       return res.status(201).send(post);
     } catch (error) {
+      console.error(error);
       return res
         .status(500)
         .send({ status: 500, message: "Fatal error!", error });
@@ -70,6 +73,8 @@ export default {
 
       return post.update(req.body).then((p) => res.send(p));
     } catch (error) {
+      console.error(error);
+      
       return res
         .status(500)
         .send({ status: 500, message: "Fatal error!", error });
@@ -105,6 +110,8 @@ export default {
 
       return res.sendStatus(204);
     } catch (error) {
+      console.error(error);
+      
       return res
         .status(500)
         .send({ status: 500, message: "Fatal error!", error });

@@ -12,21 +12,18 @@ module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert(tableName, [
       {
-        id: 1,
         user_id: 1,
         title: post1,
         slug: slugify(post1),
         body: faker.lorem.paragraph(),
       },
       {
-        id: 2,
         user_id: 2,
         title: post2,
         slug: slugify(post2),
         body: faker.lorem.paragraph(),
       },
       {
-        id: 3,
         user_id: 3,
         title: post3,
         slug: slugify(post3),

@@ -51,15 +51,27 @@ User.init(
     name: {
       type: Sequelize.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+        notNull: true,
+      }
     },
     email: {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true,
+      validate: {
+        notEmpty: true,
+        notNull: true,
+      }
     },
     password: {
       type: Sequelize.TEXT,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+        notNull: true,
+      }
     },
     createdAt: {
       type: Sequelize.DATE,

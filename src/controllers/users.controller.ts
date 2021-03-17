@@ -15,6 +15,8 @@ export default {
 
       return res.send(users);
     } catch (error) {
+      console.error(error);
+      
       return res
         .status(500)
         .send({ status: 500, message: "Fatal error!", error });
@@ -32,6 +34,8 @@ export default {
 
       return res.status(201).send(user);
     } catch (error) {
+      console.error(error);
+      
       return res
         .status(500)
         .send({ status: 500, message: "Fatal error!", error });
@@ -66,6 +70,8 @@ export default {
 
       return res.send({ token, name, email });
     } catch (error) {
+      console.error(error);
+      
       return res
         .status(500)
         .send({ status: 500, message: "Fatal error!", error });

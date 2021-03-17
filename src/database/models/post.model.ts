@@ -73,10 +73,18 @@ Post.init(
     title: {
       type: Sequelize.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+        notNull: true,
+      },
     },
     body: {
       type: Sequelize.TEXT,
       allowNull: false,
+      validate: {
+        notEmpty: true,
+        notNull: true,
+      },
     },
     slug: {
       type: Sequelize.STRING,

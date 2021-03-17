@@ -5,7 +5,7 @@ module.exports = {
     database: "intrepid_development",
     host: "db",
     dialect: "postgres",
-    logging: false,
+    logging: true,
   },
   test: {
     username: "postgres",
