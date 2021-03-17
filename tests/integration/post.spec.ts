@@ -29,8 +29,12 @@ describe("GET /posts", () => {
     const promises: Post[] = [];
 
     for (let i = 0; i < TOTAL_INITIAL_POSTS; i++) {
+      const attributes = {
+        title: faker.random.words(Math.floor(Math.random() * Math.floor(12))),
+        body: faker.lorem.paragraph(),
+      };
 
-      await Post.create(postAttributes);
+      await Post.create(attributes);
     }
   
     await Promise.all(promises);
